@@ -1,3 +1,4 @@
+
 import BoxHeader from "@/components/BoxHeader";
 import DashboardBox from "@/components/DashboardBox";
 import FlexBetween from "@/components/FlexBetween";
@@ -9,7 +10,7 @@ import {
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridCellParams } from "@mui/x-data-grid";
 import React, { useMemo } from "react";
-import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
+import { Cell, Pie, PieChart } from "recharts";
 
 const Row3 = () => {
   const { palette } = useTheme();
@@ -22,8 +23,6 @@ const Row3 = () => {
   const pieChartData = useMemo(() => {
     if (kpiData) {
       const totalExpenses = kpiData[0].totalExpenses;
-      // Looping through expense by categories and grabbing each key and the value of each property
-      // Passing it into name and
       return Object.entries(kpiData[0].expensesByCategory).map(
         ([key, value]) => {
           return [
@@ -94,72 +93,68 @@ const Row3 = () => {
           title="List of Products"
           sideText={`${productData?.length} products`}
         />
-        <ResponsiveContainer width="100%" aspect={1}>
-          <Box
-            mt="0.5rem"
-            p="0 0.5rem"
-            height="75%"
-            sx={{
-              "& .MuiDataGrid-root": {
-                color: palette.grey[300],
-                border: "none",
-              },
-              "& .MuiDataGrid-cell": {
-                borderBottom: "`1px solid ${palette.grey[800]} !important`",
-              },
-              "& .MuiDataGrid-columnHeaders": {
-                borderBottom: `1px solid ${palette.grey[800]} !important`,
-              },
-              "& .MuiDataGrid-columnSeparator": {
-                visibility: "hidden",
-              },
-            }}
-          >
-            <DataGrid
-              columnHeaderHeight={25}
-              rowHeight={35}
-              hideFooter={true}
-              rows={productData || []}
-              columns={productColumns}
-            />
-          </Box>
-        </ResponsiveContainer>
+        <Box
+          mt="0.5rem"
+          p="0 0.5rem"
+          height="75%"
+          sx={{
+            "& .MuiDataGrid-root": {
+              color: palette.grey[300],
+              border: "none",
+            },
+            "& .MuiDataGrid-cell": {
+              borderBottom: `1px solid ${palette.grey[800]} !important`,
+            },
+            "& .MuiDataGrid-columnHeaders": {
+              borderBottom: `1px solid ${palette.grey[800]} !important`,
+            },
+            "& .MuiDataGrid-columnSeparator": {
+              visibility: "hidden",
+            },
+          }}
+        >
+          <DataGrid
+            columnHeaderHeight={25}
+            rowHeight={35}
+            hideFooter={true}
+            rows={productData || []}
+            columns={productColumns}
+          />
+        </Box>
       </DashboardBox>
       <DashboardBox gridArea="h">
         <BoxHeader
           title="Recent Orders"
           sideText={`${transactionData?.length} latest transactions`}
         />
-        <ResponsiveContainer width="100%" aspect={1}>
-          <Box
-            mt="1rem"
-            p="0 0.5rem"
-            height="90%"
-            sx={{
-              "& .MuiDataGrid-root": {
-                color: palette.grey[300],
-                border: "none",
-              },
-              "& .MuiDataGrid-cell": {
-                borderBottom: `1px solid ${palette.grey[800]} !important`,
-              },
-              "& .MuiDataGrid-columnHeaders": {
-                borderBottom: `1px solid ${palette.grey[800]} !important`,
-              },
-              "& .MuiDataGrid-columnSeparator": {
-                visibility: "hidden",
-              },
-            }}
-          >
-            <DataGrid
-              columnHeaderHeight={25}
-              rowHeight={35}
-              hideFooter={true}
-              rows={transactionData || []}
-              columns={transactionColumns}
-            />
-          </Box>
-        </ResponsiveContainer>
+        <Box
+          mt="1rem"
+          p="0 0.5rem"
+          height="80%"
+          sx={{
+            "& .MuiDataGrid-root": {
+              color: palette.grey[300],
+              border: "none",
+            },
+            "& .MuiDataGrid-cell": {
+              borderBottom: `1px solid ${palette.grey[800]} !important`,
+            },
+            "& .MuiDataGrid-columnHeaders": {
+              borderBottom: `1px solid ${palette.grey[800]} !important`,
+            },
+            "& .MuiDataGrid-columnSeparator": {
+              visibility: "hidden",
+            },
+          }}
+        >
+          <DataGrid
+            columnHeaderHeight={25}
+            rowHeight={35}
+            hideFooter={true}
+            rows={transactionData || []}
+            columns={transactionColumns}
+          />
+        </Box>
       </DashboardBox>
       <DashboardBox gridArea="i">
         <BoxHeader title="Expense Breakdown By Category" sideText="+4%" />
