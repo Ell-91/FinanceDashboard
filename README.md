@@ -4,6 +4,16 @@
 
 A MERN (MongoDB, Express.js, React, Node.js) finance application featuring an interactive dashboard for tracking financial KPIs (Key Performance Indicators) and analytics. It includes interactive charts, product and order management, and revenue predictions powered by regression. Financier helps stakeholders make informed decisions with advanced data visualizations and forecasting.
 
+## Dashboards
+
+Dashboard Landing Page
+
+<img src="./resources/images/Dashboard.png">
+
+Revenue Projections Page
+
+<img src="./resources/images/Predictions.png">
+
 ## Motivation
 ### The primary goals of this project were to:
 
@@ -42,15 +52,6 @@ A MERN (MongoDB, Express.js, React, Node.js) finance application featuring an in
 - Deployment and Scalability
 - Product and Order Management
 
-## Screenshots
-
-Dashboard Landing Page
-
-<img src="./resources/images/Dashboard.png">
-
-Revenue Projections Page
-
-<img src="./resources/images/Predictions.png">
 
 ## Learning Outcomes
 
