@@ -4,7 +4,7 @@
 
 A MERN (MongoDB, Express.js, React, Node.js) finance application featuring an interactive dashboard for tracking financial KPIs (Key Performance Indicators) and analytics. It includes interactive charts, product and order management, and revenue predictions powered by regression. Financier helps stakeholders make informed decisions with advanced data visualizations and forecasting.
 
-## Dashboards
+## Dashboard
 
 Dashboard Landing Page
 
