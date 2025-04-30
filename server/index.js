@@ -37,7 +37,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(async () => {
-    app.listen(PORT, () => console.log(`Server Port: ${PORT}`)); // listen to our PORT/were we start up our server
+    app.listen(PORT, "0.0.0.0", () => console.log(`Server Port: ${PORT}`)); // listen to our PORT/were we start up our server
 
     /* ADD DATA ONE TIME ONLY OR AS NEEDED */
     // await mongoose.connection.db.dropDatabase(); //before we seed our database with info, we drop the database we crrently have s we dont have duplicate data or errors
