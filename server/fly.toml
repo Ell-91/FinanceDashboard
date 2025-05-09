@@ -7,7 +7,8 @@ app = 'server-cold-meadow-5584'
 primary_region = 'iad'
 
 [build]
-  builder = "heroku/buildpacks:20"
+  builder = "paketobuildpacks/builder:base"
+  buildpacks = ["gcr.io/paketo-buildpacks/nodejs"]
 
 [http_service]
   internal_port = 3000
