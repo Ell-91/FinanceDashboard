@@ -22,22 +22,20 @@ const daySchema = new Schema(
     {
       month: String,
       revenue: {
-        type: mongoose.Types.Currency,
-        currency: "USD",
+        type: Number,
         get: (v) => v / 100,
       },
       expenses: {
-        type: mongoose.Types.Currency,
-        currency: "USD",
+        type: Number,
         get: (v) => v / 100,
       },
       operationalExpenses: {
-        type: mongoose.Types.Currency,
+        type: Number,
         currency: "USD",
         get: (v) => v / 100,
       },
       nonOperationalExpenses: {
-        type: mongoose.Types.Currency,
+        type: Number,
         currency: "USD",
         get: (v) => v / 100,
       },
@@ -48,24 +46,24 @@ const daySchema = new Schema(
 const KPISchema = new Schema(
     {
       totalProfit: {
-        type: mongoose.Types.Currency,
+        type: Number,
         currency: "USD",
         get: (v) => v / 100, //get call in oder to do this operation to get the value
       },
       totalRevenue: {
-        type: mongoose.Types.Currency,
+        type: Number,
         currency: "USD",
         get: (v) => v / 100,
       },
       totalExpenses: {
-        type: mongoose.Types.Currency,
+        type: Number,
         currency: "USD",
         get: (v) => v / 100,
       },
       expensesByCategory: {
         type: Map,
         of: {
-          type: mongoose.Types.Currency,
+          type: Number,
           currency: "USD",
           get: (v) => v / 100,
         },
