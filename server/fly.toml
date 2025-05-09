@@ -3,10 +3,11 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'Financier'
+app = 'server-cold-meadow-5584'
 primary_region = 'iad'
 
 [build]
+  builder = "heroku/buildpacks:20"
 
 [http_service]
   internal_port = 3000
