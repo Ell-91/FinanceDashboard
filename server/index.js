@@ -5,9 +5,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
+
 import kpiRoutes from "./routes/kpi.js";
 import productRoutes from "./routes/product.js";
 import transactionRoutes from "./routes/transaction.js";
+
 import KPI from "./models/KPI.js";
 import Product from "./models/PRODUCT.js";
 import Transaction from "./models/Transaction.js";
@@ -28,6 +30,15 @@ app.use(cors());
 app.use("/kpi", kpiRoutes);
 app.use("/product", productRoutes);
 app.use("/transaction", transactionRoutes);
+
+/* CORS Configuration */
+app.use(
+  cors({
+    origin: "https://finance-dashboard-theta-six.vercel.app/", // replace with your actual Vercel domain
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 9000; // how we access the enviornment variable we created in .env

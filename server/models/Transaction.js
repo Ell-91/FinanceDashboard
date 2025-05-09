@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { loadType } from "mongoose-currency";
 
 const Schema = mongoose.Schema;
 loadType(mongoose);
@@ -11,8 +10,7 @@ const TransactionSchema = new Schema(
       required: true,
     },
     amount: {
-      type: mongoose.Types.Currency,
-      currency: "USD",
+      type: Number,
       get: (v) => v / 100,
     },
     productIds: [

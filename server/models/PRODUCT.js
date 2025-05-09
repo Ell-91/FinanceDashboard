@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { loadType } from "mongoose-currency";
 
 const Schema = mongoose.Schema;
 loadType(mongoose);
@@ -7,12 +6,12 @@ loadType(mongoose);
 const ProductSchema = new Schema(
   {
     price: {
-      type: mongoose.Types.Currency,
+      type: Number,
       currency: "USD",
       get: (v) => v / 100,
     },
     expense: {
-      type: mongoose.Types.Currency,
+      type: Number,
       currency: "USD",
       get: (v) => v / 100,
     },
