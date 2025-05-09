@@ -3,76 +3,70 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const daySchema = new Schema(
-    {
-      date: String,
-      revenue: {
-        type: Number,
-        get: (v) => v / 100,
-      },
-      expenses: {
-        type: Number,
-        get: (v) => v / 100,
-      },
+  {
+    date: String,
+    revenue: {
+      type: Number,
+      get: (v) => v / 100,
     },
-    { toJSON: { getters: true } }
-  );
-  
-  const monthSchema = new Schema(
-    {
-      month: String,
-      revenue: {
-        type: Number,
-        get: (v) => v / 100,
-      },
-      expenses: {
-        type: Number,
-        get: (v) => v / 100,
-      },
-      operationalExpenses: {
-        type: Number,
-        currency: "USD",
-        get: (v) => v / 100,
-      },
-      nonOperationalExpenses: {
-        type: Number,
-        currency: "USD",
-        get: (v) => v / 100,
-      },
+    expenses: {
+      type: Number,
+      get: (v) => v / 100,
     },
-    { toJSON: { getters: true } } // need this in order to use getters
-  );
+  },
+  { toJSON: { getters: true } }
+);
+
+const monthSchema = new Schema(
+  {
+    month: String,
+    revenue: {
+      type: Number,
+      get: (v) => v / 100,
+    },
+    expenses: {
+      type: Number,
+      get: (v) => v / 100,
+    },
+    operationalExpenses: {
+      type: Number,
+      get: (v) => v / 100,
+    },
+    nonOperationalExpenses: {
+      type: Number,
+      get: (v) => v / 100,
+    },
+  },
+  { toJSON: { getters: true } } // need this in order to use getters
+);
 
 const KPISchema = new Schema(
-    {
-      totalProfit: {
-        type: Number,
-        currency: "USD",
-        get: (v) => v / 100, //get call in oder to do this operation to get the value
-      },
-      totalRevenue: {
-        type: Number,
-        currency: "USD",
-        get: (v) => v / 100,
-      },
-      totalExpenses: {
-        type: Number,
-        currency: "USD",
-        get: (v) => v / 100,
-      },
-      expensesByCategory: {
-        type: Map,
-        of: {
-          type: Number,
-          currency: "USD",
-          get: (v) => v / 100,
-        },
-      },
-      monthlyData: [monthSchema],
-      dailyData: [daySchema],
+  {
+    totalProfit: {
+      type: Number,
+      get: (v) => v / 100, //get call in oder to do this operation to get the value
     },
-    { timestamps: true, toJSON: { getters: true } }
-  );
-  
-  const KPI = mongoose.model("KPI", KPISchema);
+    totalRevenue: {
+      type: Number,
+      get: (v) => v / 100,
+    },
+    totalExpenses: {
+      type: Number,
+      get: (v) => v / 100,
+    },
+    expensesByCategory: {
+      type: Map,
+      of: {
+        type: Number,
+        get: (v) => v / 100,
+      },
+    },
+    monthlyData: [monthSchema],
+    dailyData: [daySchema],
+  },
+  { timestamps: true, toJSON: { getters: true } }
+);
 
-  export default KPI;
+const KPI = mongoose.model("KPI", KPISchema);
+
+export default KPI;
